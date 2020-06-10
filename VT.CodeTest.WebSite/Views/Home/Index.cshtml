@@ -1,0 +1,38 @@
+﻿@model VT.CodeTest.WebSite.Models.EquationParameters
+
+@{
+    ViewData["Title"] = "Code Test";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Solve Equation</h1>
+    <form asp-controller="Home" asp-action="Index" method="post">
+        <input type="text" asp-for="Number1" />
+        <select asp-for="Operator" asp-items="ViewBag.SupportedOperators"></select>
+        <input type="text" asp-for="Number2" />
+        <input type="submit" />
+        @if (ViewBag.EquationResult != null)
+        {
+            <span>
+                = @ViewBag.EquationResult
+            </span>
+        }
+    </form>
+
+    <div class="alert alert-warning scared-warning" role="alert">
+        Don't be scared, you won't be asked to write server rendered html.
+    </div>
+
+    <div class="alert alert-dark text-left" role="alert">
+        <h2>Objective</h2>
+        <p>We built a page to solve basic math equations, but received a customer request to add support for more mathematical operators.</p>
+        <p>Right now, equations are solved using a switch statement and lambda functions, but this won't scale well as every time we need to add another operator, we need to add another case in the switch statement, and another lambda function.</p>
+        <p>Please implement the following features.</p>
+        <ol>
+            <li>Replace existing lambda calculations by building a BinaryExpression that can be invoked as a Func<T, TResult>.</li>
+            <li>Add tests to confirm the new code performs calculations correctly.</li>
+        </ol>
+    </div>
+</div>
+
+
