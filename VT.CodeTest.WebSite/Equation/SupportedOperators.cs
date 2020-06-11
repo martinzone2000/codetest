@@ -17,6 +17,9 @@ namespace VT.CodeTest.WebSite.Equation
             operators.Add("-", ExpressionType.Subtract);
             operators.Add("*", ExpressionType.Multiply);
             operators.Add("/", ExpressionType.Divide);
+
+            //The real test is can we add operators easily
+            operators.Add("%", ExpressionType.Modulo);
             return operators;
         }
 
